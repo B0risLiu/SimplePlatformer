@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour
     [SerializeField] private float _pauseBeforeDeleting;
 
     private AudioSource _audioSource;
+    private bool _isCollected;
 
     private void Start()
     {
@@ -17,8 +18,9 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Player>(out Player player))
+        if (collision.TryGetComponent<Player>(out Player player) && _isCollected == false)
         {
+            _isCollected = true;
             player.AddCoin();
             StartCoroutine(DeleteCoin());
         }
