@@ -16,6 +16,20 @@ public class Player : MonoBehaviour
 
     public int CoinAmount { get; private set; }
 
+    public void AddCoin()
+    {
+        CoinAmount++;
+    }
+
+    public void TakeDamage()
+    {
+        if (_isInvincible == false)
+        {
+            _isInvincible = true;
+            StartCoroutine(Blink());
+        }
+    }
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -29,19 +43,5 @@ public class Player : MonoBehaviour
         Tween tween = _spriteRenderer.DOColor(targetColor, _blinkSpeed).From().SetLoops(loopsAmount, LoopType.Yoyo);
         yield return tween.WaitForCompletion();
         _isInvincible = false;
-    }
-
-    public void AddCoin()
-    {
-        CoinAmount++;
-    }
-
-    public void TakeDamage()
-    {
-        if (_isInvincible == false)
-        {
-            _isInvincible = true;
-            StartCoroutine(Blink());
-        }
     }
 }
