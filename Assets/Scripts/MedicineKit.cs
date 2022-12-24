@@ -3,8 +3,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class Coin : MonoBehaviour
+public class MedicineKit : MonoBehaviour
 {
+    [SerializeField] private int _healAmount;
     [SerializeField] private float _pauseBeforeDeleting;
 
     private AudioSource _audioSource;
@@ -20,12 +21,12 @@ public class Coin : MonoBehaviour
         if (collision.TryGetComponent<Player>(out Player player) && _isCollected == false)
         {
             _isCollected = true;
-            player.AddCoin();
-            StartCoroutine(DeleteCoin());
+            player.Heal(_healAmount);
+            StartCoroutine(DeleteKit());
         }
     }
 
-    private IEnumerator DeleteCoin()
+    private IEnumerator DeleteKit()
     {
         var pause = new WaitForSeconds(_pauseBeforeDeleting);
         _audioSource.Play();

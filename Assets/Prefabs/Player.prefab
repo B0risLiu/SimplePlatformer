@@ -467,6 +467,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _invincibilityTime: 2
   _blinkSpeed: 0.2
+  _maxHealth: 100
+  _HealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1463771668
 MonoBehaviour:
   m_ObjectHideFlags: 0
