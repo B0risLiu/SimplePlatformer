@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int _maxHealth;
 
     [SerializeField] private UnityEvent HealthChanged;
-    [SerializeField] private UnityEvent ÑoinsAmountChanged;
+    [SerializeField] private UnityEvent CoinsAmountChanged;
 
     private SpriteRenderer _spriteRenderer;
     private bool _isInvincible;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     public void TakeCoin()
     {
         CoinsAmount++;
-        ÑoinsAmountChanged.Invoke();
+        CoinsAmountChanged.Invoke();
     }
 
     public void TakeDamage(int value)

@@ -468,7 +468,10 @@ MonoBehaviour:
   _invincibilityTime: 2
   _blinkSpeed: 0.2
   _maxHealth: 100
-  _HealthChanged:
+  HealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  CoinsAmountChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1463771668

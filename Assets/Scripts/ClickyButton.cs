@@ -12,7 +12,7 @@ public class ClickyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private AudioClip _buttonUpSound;
     [SerializeField] private Sprite _highlightedSprite;
 
-    [SerializeField] private UnityEvent Ñlicked;
+    [SerializeField] private UnityEvent Clicked;
 
     private Sprite _defaultSprite;
     private Image _image;
@@ -43,6 +43,6 @@ public class ClickyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerUp(PointerEventData eventData)
     {
         _audioSource.PlayOneShot(_buttonUpSound);
-        Ñlicked.Invoke();
+        Clicked.Invoke();
     }
 }

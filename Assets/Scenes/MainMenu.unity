@@ -803,7 +803,7 @@ MonoBehaviour:
   _buttonDownSound: {fileID: 8300000, guid: 0fd55763ccc625d4b817ea3311543ac5, type: 3}
   _buttonUpSound: {fileID: 8300000, guid: 95de2da4666584d47b3c6126f6f14f59, type: 3}
   _highlightedSprite: {fileID: -1397263040, guid: 54b664ca75dbece4ea3a07f76313b928, type: 3}
-  _clicked:
+  Clicked:
     m_PersistentCalls:
       m_Calls: []
 --- !u!82 &424631478
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   _buttonDownSound: {fileID: 8300000, guid: 0fd55763ccc625d4b817ea3311543ac5, type: 3}
   _buttonUpSound: {fileID: 8300000, guid: 95de2da4666584d47b3c6126f6f14f59, type: 3}
   _highlightedSprite: {fileID: -655545268, guid: 2676ff5c94fc9f1489d59bf570d079e3, type: 3}
-  _clicked:
+  Clicked:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 779032598}
@@ -1841,7 +1841,7 @@ MonoBehaviour:
   _clickSound: {fileID: 8300000, guid: 0fd55763ccc625d4b817ea3311543ac5, type: 3}
   _enabledSprite: {fileID: -603632851, guid: 2676ff5c94fc9f1489d59bf570d079e3, type: 3}
   _disabledSprite: {fileID: -192628600, guid: 2676ff5c94fc9f1489d59bf570d079e3, type: 3}
-  _switchOn:
+  SwitchOn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2889296632335002490, guid: f6cb24a488d208744b8c8bdeaaeaaa2e, type: 3}
@@ -1856,7 +1856,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  _switchOff:
+  SwitchOff:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2889296632335002490, guid: f6cb24a488d208744b8c8bdeaaeaaa2e, type: 3}
@@ -2460,7 +2460,7 @@ MonoBehaviour:
   _buttonDownSound: {fileID: 8300000, guid: 0fd55763ccc625d4b817ea3311543ac5, type: 3}
   _buttonUpSound: {fileID: 8300000, guid: 95de2da4666584d47b3c6126f6f14f59, type: 3}
   _highlightedSprite: {fileID: -1397263040, guid: 54b664ca75dbece4ea3a07f76313b928, type: 3}
-  _clicked:
+  Clicked:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 779032598}
@@ -2780,7 +2780,7 @@ MonoBehaviour:
   _buttonDownSound: {fileID: 8300000, guid: 0fd55763ccc625d4b817ea3311543ac5, type: 3}
   _buttonUpSound: {fileID: 8300000, guid: 95de2da4666584d47b3c6126f6f14f59, type: 3}
   _highlightedSprite: {fileID: -1397263040, guid: 54b664ca75dbece4ea3a07f76313b928, type: 3}
-  _clicked:
+  Clicked:
     m_PersistentCalls:
       m_Calls: []
 --- !u!82 &1371975032
@@ -2934,7 +2934,7 @@ MonoBehaviour:
   _buttonDownSound: {fileID: 8300000, guid: 0fd55763ccc625d4b817ea3311543ac5, type: 3}
   _buttonUpSound: {fileID: 8300000, guid: 95de2da4666584d47b3c6126f6f14f59, type: 3}
   _highlightedSprite: {fileID: -655545268, guid: 2676ff5c94fc9f1489d59bf570d079e3, type: 3}
-  _clicked:
+  Clicked:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 779032598}
@@ -3563,21 +3563,9 @@ MonoBehaviour:
   _buttonDownSound: {fileID: 8300000, guid: 0fd55763ccc625d4b817ea3311543ac5, type: 3}
   _buttonUpSound: {fileID: 8300000, guid: 95de2da4666584d47b3c6126f6f14f59, type: 3}
   _highlightedSprite: {fileID: -1397263040, guid: 54b664ca75dbece4ea3a07f76313b928, type: 3}
-  _clicked:
+  Clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132550098}
-        m_TargetAssemblyTypeName: Titles, Assembly-CSharp
-        m_MethodName: StartTitles
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 779032598}
         m_TargetAssemblyTypeName: UnityEngine.Camera, UnityEngine
         m_MethodName: set_nearClipPlane
@@ -3599,6 +3587,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 25
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 132550098}
+        m_TargetAssemblyTypeName: Titles, Assembly-CSharp
+        m_MethodName: StartTitles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -3888,7 +3888,7 @@ MonoBehaviour:
   _clickSound: {fileID: 8300000, guid: 0fd55763ccc625d4b817ea3311543ac5, type: 3}
   _enabledSprite: {fileID: -603632851, guid: 2676ff5c94fc9f1489d59bf570d079e3, type: 3}
   _disabledSprite: {fileID: -192628600, guid: 2676ff5c94fc9f1489d59bf570d079e3, type: 3}
-  _switchOn:
+  SwitchOn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 779032597}
@@ -3903,7 +3903,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  _switchOff:
+  SwitchOff:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 779032597}
