@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
 using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -12,20 +11,27 @@ public class Player : MonoBehaviour
     [SerializeField] private float _invincibilityTime;
     [SerializeField] private float _blinkSpeed;
     [SerializeField] private int _maxHealth;
-    [SerializeField] private UnityEvent _HealthChanged;
-    [SerializeField] private UnityEvent _coinAmountChanged;
+
+    [SerializeField] private UnityEvent HealthChanged;
+    [SerializeField] private UnityEvent ÑoinsAmountChanged;
 
     private SpriteRenderer _spriteRenderer;
     private bool _isInvincible;
 
-    public int CoinAmount { get; private set; }
+    public int CoinsAmount { get; private set; }
     public int Health { get; private set; }
     public int MaxHealth => _maxHealth;
 
-    public void AddCoin()
+    private void Start()
     {
-        CoinAmount++;
-        _coinAmountChanged.Invoke();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        Health = _maxHealth;
+    }
+
+    public void TakeCoin()
+    {
+        CoinsAmount++;
+        ÑoinsAmountChanged.Invoke();
     }
 
     public void TakeDamage(int value)
@@ -34,7 +40,7 @@ public class Player : MonoBehaviour
         {
             Health -= value;
             Health = Health < 0 ? 0 : Health;
-            _HealthChanged.Invoke();
+            HealthChanged.Invoke();
 
             if (Health > 0)
             {
@@ -50,14 +56,9 @@ public class Player : MonoBehaviour
     {
         Health += value;
         Health = Health > _maxHealth ? _maxHealth : Health;
-        _HealthChanged.Invoke();
+        HealthChanged.Invoke();
     }
 
-    private void Start()
-    {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        Health = _maxHealth;
-    }
 
     private IEnumerator Blink()
     {

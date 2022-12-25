@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -22,6 +20,37 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGroundSansorOn;
     private bool _isRightWallSensorOn;
     private bool _isLeftWallSensorOn;
+
+    private void Start()
+    {
+        _rb2d = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        float inputX = Input.GetAxis("Horizontal");
+
+        if (inputX > 0)
+            _spriteRenderer.flipX = false;
+        else if (inputX < 0)
+            _spriteRenderer.flipX = true;
+
+        if (Input.GetKeyDown(KeyCode.Space) && _isGroundSansorOn)
+        {
+            _rb2d.velocity = new Vector2(0, _jumpForce);
+            _animator.SetTrigger(Jump);
+        }
+
+        if ((inputX > 0 && _isRightWallSensorOn == false) || (inputX < 0 && _isLeftWallSensorOn == false))
+            _rb2d.velocity = new Vector2(inputX * _spead, _rb2d.velocity.y);
+        else
+            _rb2d.velocity = new Vector2(0, _rb2d.velocity.y);
+
+        _animator.SetFloat(SpeadX, Mathf.Abs(_rb2d.velocity.x));
+        _animator.SetFloat(SpeadY, _rb2d.velocity.y);
+    }
 
     public void GroundSensorOn()
     {
@@ -53,36 +82,5 @@ public class PlayerMovement : MonoBehaviour
     public void LeftWallSensorOff()
     {
         _isLeftWallSensorOn = false;
-    }
-
-    private void Start()
-    {
-        _rb2d = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void Update()
-    {
-        float inputX = Input.GetAxis("Horizontal");
-
-        if (inputX > 0)
-            _spriteRenderer.flipX = false;
-        else if (inputX < 0)
-            _spriteRenderer.flipX = true;
-
-        if (Input.GetKeyDown(KeyCode.Space) && _isGroundSansorOn)
-        {
-            _rb2d.velocity = new Vector2(0, _jumpForce);
-            _animator.SetTrigger(Jump);
-        }
-
-        if ((inputX > 0 && _isRightWallSensorOn == false) || (inputX < 0 && _isLeftWallSensorOn == false))
-            _rb2d.velocity = new Vector2(inputX * _spead, _rb2d.velocity.y);
-        else
-            _rb2d.velocity = new Vector2(0, _rb2d.velocity.y);
-
-        _animator.SetFloat(SpeadX, Mathf.Abs(_rb2d.velocity.x));
-        _animator.SetFloat(SpeadY, _rb2d.velocity.y);
     }
 }

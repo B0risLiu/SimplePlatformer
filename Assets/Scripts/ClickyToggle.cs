@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(AudioSource))]
@@ -14,24 +13,25 @@ public class ClickyToggle : MonoBehaviour, IPointerDownHandler
     [SerializeField] private AudioClip _clickSound;
     [SerializeField] private Sprite _enabledSprite;
     [SerializeField] private Sprite _disabledSprite;
-    [SerializeField] private UnityEvent _switchOn;
-    [SerializeField] private UnityEvent _switchOff;
+
+    [SerializeField] private UnityEvent SwitchOn;
+    [SerializeField] private UnityEvent SwitchOff;
 
     private Image _image;
     private AudioSource _audioSource;
     private Coroutine _workingCoroutine;
     private bool _isOn = true;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (_workingCoroutine == null)
-            _workingCoroutine = StartCoroutine(Switch());
-    }
-
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         _image = GetComponent<Image>();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (_workingCoroutine == null)
+            _workingCoroutine = StartCoroutine(Switch());
     }
 
     private IEnumerator Switch()
@@ -44,8 +44,8 @@ public class ClickyToggle : MonoBehaviour, IPointerDownHandler
         _workingCoroutine = null;
 
         if (_isOn)
-            _switchOn.Invoke();
+            SwitchOn.Invoke();
         else
-            _switchOff.Invoke();
+            SwitchOff.Invoke();
     }
 }

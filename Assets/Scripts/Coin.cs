@@ -20,7 +20,8 @@ public class Coin : MonoBehaviour
         if (collision.TryGetComponent<Player>(out Player player) && _isCollected == false)
         {
             _isCollected = true;
-            player.AddCoin();
+            _audioSource.Play();
+            player.TakeCoin();
             StartCoroutine(DeleteCoin());
         }
     }
@@ -28,7 +29,6 @@ public class Coin : MonoBehaviour
     private IEnumerator DeleteCoin()
     {
         var pause = new WaitForSeconds(_pauseBeforeDeleting);
-        _audioSource.Play();
         yield return pause;
         Destroy(gameObject);
     }

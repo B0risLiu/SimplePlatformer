@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class Titles : MonoBehaviour
 {
@@ -10,6 +8,11 @@ public class Titles : MonoBehaviour
 
     private Vector3 _startPosition;
     private Coroutine _workingCoroutine;
+
+    private void Start()
+    {
+        _startPosition = transform.position;
+    }
 
     public void StartTitles()
     {
@@ -24,11 +27,6 @@ public class Titles : MonoBehaviour
         }
 
         transform.position = _startPosition;
-    }
-
-    private void Start()
-    {
-        _startPosition = transform.position;
     }
 
     private IEnumerator TitlesRun()

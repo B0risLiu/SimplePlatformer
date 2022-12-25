@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,8 +8,6 @@ public class CoinDisplay : MonoBehaviour
 
     public void UpdateValue()
     {
-        _coinAmount.text = _player.CoinAmount.ToString();
+        _coinAmount.text = _player.CoinsAmount.ToString();
     }
-
-
 }

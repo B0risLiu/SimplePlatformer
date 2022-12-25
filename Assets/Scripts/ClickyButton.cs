@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(AudioSource))]
@@ -13,11 +11,19 @@ public class ClickyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private AudioClip _buttonDownSound;
     [SerializeField] private AudioClip _buttonUpSound;
     [SerializeField] private Sprite _highlightedSprite;
-    [SerializeField] private UnityEvent _clicked;
+
+    [SerializeField] private UnityEvent Ñlicked;
 
     private Sprite _defaultSprite;
     private Image _image;
     private AudioSource _audioSource;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _image = GetComponent<Image>();
+        _defaultSprite = _image.sprite;
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -37,13 +43,6 @@ public class ClickyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerUp(PointerEventData eventData)
     {
         _audioSource.PlayOneShot(_buttonUpSound);
-        _clicked.Invoke();
-    }
-
-    private void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-        _image = GetComponent<Image>();
-        _defaultSprite = _image.sprite;
+        Ñlicked.Invoke();
     }
 }

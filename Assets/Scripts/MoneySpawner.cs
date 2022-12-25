@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoneySpawner : MonoBehaviour
 {
     [SerializeField] private Coin _template;
-    [SerializeField] private float _pause;
+    [SerializeField] private float _pauseBetweenSpawns;
 
     private Transform[] _spawnPoints;
 
@@ -23,7 +23,7 @@ public class MoneySpawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        var pause = new WaitForSeconds(_pause);
+        var pause = new WaitForSeconds(_pauseBetweenSpawns);
 
         for (int i = 0; i < _spawnPoints.Length; i++)
         {
