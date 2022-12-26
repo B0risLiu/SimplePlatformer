@@ -14,8 +14,8 @@ public class ClickyToggle : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Sprite _enabledSprite;
     [SerializeField] private Sprite _disabledSprite;
 
-    [SerializeField] private UnityEvent SwitchOn;
-    [SerializeField] private UnityEvent SwitchOff;
+    [SerializeField] private UnityEvent _switchOn;
+    [SerializeField] private UnityEvent _switchOff;
 
     private Image _image;
     private AudioSource _audioSource;
@@ -44,8 +44,8 @@ public class ClickyToggle : MonoBehaviour, IPointerDownHandler
         _workingCoroutine = null;
 
         if (_isOn)
-            SwitchOn.Invoke();
+            _switchOn.Invoke();
         else
-            SwitchOff.Invoke();
+            _switchOff.Invoke();
     }
 }
