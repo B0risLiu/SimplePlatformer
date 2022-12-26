@@ -12,11 +12,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _blinkSpeed;
     [SerializeField] private int _maxHealth;
 
-    [SerializeField] private UnityEvent HealthChanged;
-    [SerializeField] private UnityEvent CoinsAmountChanged;
-
     private SpriteRenderer _spriteRenderer;
     private bool _isInvincible;
+
+    public event UnityAction HealthChanged;
+    public event UnityAction CoinsAmountChanged;
 
     public int CoinsAmount { get; private set; }
     public int Health { get; private set; }
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Heal(int value)
+    public void TakeHealing(int value)
     {
         Health += value;
         Health = Health > _maxHealth ? _maxHealth : Health;

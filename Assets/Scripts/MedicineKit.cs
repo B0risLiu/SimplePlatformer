@@ -21,7 +21,7 @@ public class MedicineKit : MonoBehaviour
         if (collision.TryGetComponent<Player>(out Player player) && _isCollected == false)
         {
             _isCollected = true;
-            player.Heal(_healAmount);
+            player.TakeHealing(_healAmount);
             StartCoroutine(DeleteKit());
         }
     }
